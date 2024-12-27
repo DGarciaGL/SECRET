@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat privado</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        #chat-box { width: 100%; height: 300px; overflow-y: scroll; border: 1px solid #ccc; padding: 10px; }
+        #message-input { width: 100%; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h2>Chat privado con [Tu nombre]</h2>
+    <div id="chat-box"></div>
+    <textarea id="message-input" placeholder="Escribe un mensaje..."></textarea>
+    <button onclick="sendMessage()">Enviar</button>
+
+    <script>
+        function sendMessage() {
+            var message = document.getElementById('message-input').value;
+            if (message.trim() !== "") {
+                var chatBox = document.getElementById('chat-box');
+                chatBox.innerHTML += "<p><strong>Tu mensaje:</strong> " + message + "</p>";
+                document.getElementById('message-input').value = "";  // Limpia el campo
+                chatBox.scrollTop = chatBox.scrollHeight;  // Desplaza el chat hacia abajo
+            }
+        }
+    </script>
+</body>
+</html>
+
